@@ -5,6 +5,7 @@ var THUMBNAIL_LINK_SELECTOR = '[data-image-role="trigger"]';
 var HIDDEN_DETAIL_CLASS = 'hidden-detail';
 var TINY_EFFECT_CLASS = 'is-tiny';
 var ESC_KEY = 27;
+var slideIndex = 0;
 
 function setDetails(imageUrl, titleText) {
   'use strict';
@@ -77,6 +78,30 @@ function initializeEvents() {
   var thumbnails = getThumbnailsArray();
   thumbnails.forEach(addThumbClickHandler);
   addKeyPressHandler();
+  slideIndex = 0;
+}
+
+function sliderNext() {
+  var thumb = getThumbnailsArray();
+  if (slideIndex > thumb.length - 1){
+    //Do nothing
+  } else {
+    slideIndex++;
+    setDetailsFromThumb(thumb[slideIndex]);
+  }
+  slideIndex - 1;
+}
+
+function sliderPrev() {
+  var thumb = getThumbnailsArray();
+  if (slideIndex < 0){
+    //Do nothing
+  } else {
+    slideIndex--;
+  }
+  if (slideIndex >= 0) {
+    setDetailsFromThumb(thumb[slideIndex]);
+  }
 }
 
 initializeEvents();
