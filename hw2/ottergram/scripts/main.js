@@ -88,6 +88,7 @@ function sliderNext() {
   } else {
     slideIndex++;
     setDetailsFromThumb(thumb[slideIndex]);
+    showDetails();
   }
   slideIndex - 1;
 }
@@ -101,6 +102,7 @@ function sliderPrev() {
   }
   if (slideIndex >= 0) {
     setDetailsFromThumb(thumb[slideIndex]);
+    showDetails();
   }
 }
 
