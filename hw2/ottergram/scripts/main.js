@@ -78,7 +78,7 @@ function initializeEvents() {
   var thumbnails = getThumbnailsArray();
   thumbnails.forEach(addThumbClickHandler);
   addKeyPressHandler();
-  slideIndex = 0;
+  //slideIndex = 0;
 }
 
 function sliderNext() {
@@ -90,7 +90,6 @@ function sliderNext() {
     setDetailsFromThumb(thumb[slideIndex]);
     showDetails();
   }
-  slideIndex - 1;
 }
 
 function sliderPrev() {
