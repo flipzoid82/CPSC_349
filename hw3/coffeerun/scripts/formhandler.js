@@ -14,19 +14,28 @@
   }
 
   FormHandler.prototype.addSubmitHandler = function(fn) {
+    /* eslint-disable-next-line no-console */
     console.log('Setting submit handler for form');
     this.$formElement.on('submit', function(event) {
       event.preventDefault();
       var data = {};
       $(this).serializeArray().forEach(function(item) {
         data[item.name] = item.value;
+        /* eslint-disable-next-line no-console */
         console.log(item.name + ' is ' + item.value);
       });
+      /* eslint-disable-next-line no-console */
       console.log(data);
       fn(data);
       this.reset();
       this.elements[0].focus();
     });
+  };
+
+  FormHandler.prototype.submitHandler = function() {
+    /* eslint-disable-next-line no-console */
+    console.log('Setting submit handler for form');
+    // More code will go here
   };
 
   App.FormHandler = FormHandler;
