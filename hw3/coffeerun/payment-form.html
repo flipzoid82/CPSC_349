@@ -4,16 +4,16 @@
 <head>
   <meta charset="utf-8">
   <title>Payment form example</title>
-  <!-- <link href="stylesheets/payment-form.css" rel="stylesheet"> -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+  <link href="stylesheets/payment-form.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
 </head>
 
-<body class="container">
-  <header>
-    <h1>Payment form</h1>
-  </header>
-  <form data-payment='form'>
+<body>
+  <form data-coffee-payment='form'>
+    <header>
+      <h1>Payment form</h1>
+    </header>
     <p>Required fields are followed by <strong><abbr title="required">*</abbr></strong>.</p>
     <section>
       <h2>Contact information</h2>
@@ -85,11 +85,18 @@
       </p>
     </section>
     <section>
-      <p> <button type="submit">Validate Payment</button> </p>
+      <p> <button type="submit" formaction="#ex1" formtarget="modal:open">Validate Payment</button> </p>
+
+      <!-- Modal HTML embedded directly into document -->
+      <div id="ex1" class="modal" data-payment-thank-you="div">
+      </div>
+
+      <!-- Link to open the modal -->
+      <p><a href="#ex1" rel="modal:open">Open Modal</a></p>
     </section>
   </form>
   <!-- <script src="scripts/checklist.js" charset="utf-8"></script> -->
-  <script src="scripts/paymentFormHandler.js" charset="utf-8"></script>
+  <script src="scripts/formHandler.js" charset="utf-8"></script>
   <!-- <script src="scripts/datastore.js" charset="utf-8"></script>
   <script src="scripts/truck.js" charset="utf-8"></script> -->
   <script src="scripts/payment-form-main.js" charset="utf-8"></script>

@@ -1,11 +1,14 @@
 (function(window) {
   'use strict';
-  var FORM_SELECTOR = '[data-payment="form"]';
+  var FORM_SELECTOR = '[data-coffee-payment="form"]';
   var App = window.App;
-  var PaymentFormHandler = App.PaymentFormHandler;
+  var FormHandler = App.FormHandler;
 
-  var paymentFormHandler = new PaymentFormHandler(FORM_SELECTOR);
+  var formHandler = new FormHandler(FORM_SELECTOR);
 
-  paymentFormHandler.submitHandler();
-  console.log(paymentFormHandler);
+  formHandler.submitPaymentHandler(function(data){
+    formHandler.addRow(data);
+  });
+
+  console.log(formHandler);
 })(window);
