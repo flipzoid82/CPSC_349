@@ -60,10 +60,10 @@
   function Row(paymentData) {
     var $div = $('<div></div>', {
       'id': 'ex1',
-      'data-payment-thank-you': 'modal',
+      'data-payment-thank-you': 'div',
       'class': 'modal'
     });
-    
+
     var $label = $('<label></label>');
 
     var $p = $('<p></p>', {
