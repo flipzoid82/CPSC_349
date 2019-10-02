@@ -9,6 +9,6 @@
   formHandler.submitPaymentHandler(function(data){
     formHandler.addRow(data);
   });
-
+/* eslint-disable-next-line no-console */
   console.log(formHandler);
 })(window);
