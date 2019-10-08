@@ -25,7 +25,7 @@
     $.get(this.serverUrl, function(serverResponse) {
       /* eslint-disable-next-line no-console */
       console.log(serverResponse);
-      serverResponse.forEach(function(response){
+      serverResponse.forEach(function(response) {
         checkList.addRow.call(checkList, response);
       });
       //cb(serverResponse);
@@ -35,22 +35,16 @@
   RemoteDataStore.prototype.get = function(key, cb) {
     $.get(this.serverUrl + '?emailAddress=' + key, function(serverResponse) {
       /* eslint-disable-next-line no-console */
-      //console.log(serverResponse);
-      //var obj = JSON.stringify(serverResponse);
-      ID = serverResponse[0].id;
-      //console.log('test');
-      console.log(ID);
+      console.log(serverResponse[0].id);
     });
+    //cb(serverResponse);
   };
 
-var remoteDS = new RemoteDataStore('http://localhost:2403/coffeeorders');
-
   RemoteDataStore.prototype.remove = function(key) {
-    remoteDS.get(key);
-    console.log('remove test');
-    console.log(ID);
-    $.ajax(this.serverUrl + '/' + ID, {
-      type: 'DELETE'
+    $.get(this.serverUrl + '?emailAddress=' + key, function(serverResponse) {
+      $.ajax('http://localhost:2403/coffeeorders/' + serverResponse[0].id, {
+        type: 'DELETE'
+      });
     });
   };
 
